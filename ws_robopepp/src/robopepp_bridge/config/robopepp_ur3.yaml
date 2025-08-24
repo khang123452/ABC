@@ -1,0 +1,32 @@
+paths:
+  urdf_left:   ~/ws_robopepp/src/robopepp_bridge/urdf/ur3_left_with_2f85.xacro
+  urdf_right:  ~/ws_robopepp/src/robopepp_bridge/urdf/ur3_right_with_2f85.xacro
+  checkpoint:  ~/RoboPEPP/checkpoints/robopepp_ssl_realsense.pt
+  log_dir:     ~/ws_robopepp/logs
+camera:
+  use_camera_info: false
+  intrinsics_yaml: ~/ws_robopepp/src/robopepp_bridge/config/intrinsics.yaml
+  frame_id: camera_color_optical_frame
+inference:
+  bbox_method: gsam2
+  bbox_prompt: "robot arm"
+  bbox_min_conf: 0.25
+  bbox_rate_hz: 2.0
+  include_gripper_keypoints: true
+  pnp_solver: ransac
+  ransac_reproj_err: 3.0
+  min_pnp_inliers: 6
+robot:
+  left:
+    name: ur3_left
+    base_frame: ur3_left_base
+    tcp_frame: tool0
+    joint_names: [left_shoulder_pan_joint, left_shoulder_lift_joint, left_elbow_joint, left_wrist_1_joint, left_wrist_2_joint, left_wrist_3_joint]
+  right:
+    name: ur3_right
+    base_frame: ur3_right_base
+    tcp_frame: tool0
+    joint_names: [right_shoulder_pan_joint, right_shoulder_lift_joint, right_elbow_joint, right_wrist_1_joint, right_wrist_2_joint, right_wrist_3_joint]
+eval:
+  csv_dir: ~/ws_robopepp/logs
+  rmse_px_target: 5.0
