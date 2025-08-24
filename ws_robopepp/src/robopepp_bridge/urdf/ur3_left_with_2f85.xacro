@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<robot name="ur3_left" xmlns:xacro="http://ros.org/wiki/xacro">
+  <!-- Placeholder UR3 + Robotiq 2F-85 assembly -->
+  <!-- In real setup, include UR3 and gripper xacros and attach tool0 -->
+</robot>
